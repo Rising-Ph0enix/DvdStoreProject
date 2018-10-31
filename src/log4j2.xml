@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <RollingFile name="roll-by-time"
+            fileName="log/roll-by-time/dvdstore.log"
+            filePattern="log/roll-by-time/dvdstore.%d{MM-dd-yyyy-HH-mm}.log.gz"
+            ignoreExceptions="false">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} %p %m%n</Pattern>
+            </PatternLayout>
+            <TimeBasedTriggeringPolicy interval = "86400" modulate = "true"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="roll-by-time"/>
+        </Root>
+    </Loggers>
+</Configuration>
