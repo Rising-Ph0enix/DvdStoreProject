@@ -272,6 +272,20 @@ public class CustomerController {
         return modelAndView;  
     }
 
+    @RequestMapping(value="display-all-customers", method=RequestMethod.GET)
+    public ModelAndView displayAllCustomers() {  
+
+        List<Customer> customerAccounts = new ArrayList<Customer>();
+
+        try {
+            CustomerService customerService = 
+                new CustomerServiceImpl();
+            customerAccounts = customerService.retrieveCustomers();
+        } catch (DvdStoreException e) {
+            System.out.println(e.getMessage());
+        } 
+        return new ModelAndView("admin-display-all-customers", "customerAccounts", customerAccounts);  
+    }  
 
 }
 
@@ -450,7 +464,7 @@ public class CustomerController {
             System.out.println(e.getMessage());
         } 
         request.setAttribute("customerAccounts", customerAccounts);
-        dispatchRequest("display-all-customers.jsp", request, response);
+        dispatchRequest("admin-display-all-customers.jsp", request, response);
     }
 
     public void dispatchRequest(String nextPage, HttpServletRequest request, HttpServletResponse response) {

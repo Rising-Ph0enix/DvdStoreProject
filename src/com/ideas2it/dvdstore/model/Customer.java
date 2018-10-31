@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,7 +41,7 @@ public class Customer {
     @Column(name="expired_date")
     private LocalDate expiredDate;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer", fetch=FetchType.EAGER)
     private List<PurchaseOrder> purchaseOrders = new ArrayList<PurchaseOrder>();
 
     @OneToOne(mappedBy = "customer")

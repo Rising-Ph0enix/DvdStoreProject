@@ -98,10 +98,13 @@ public class UserController {
         return "dvd-added";  
     }
 
-    @RequestMapping(value="sign-out", method=RequestMethod.GET)
+    @RequestMapping(value="sign-out", method=RequestMethod.POST)
     public String signOutUser(HttpServletRequest request, HttpServletResponse response) {
+        // String contextPath = request.getContextPath();
+        // System.out.println(contextPath);
         HttpSession session = request.getSession(false);
         session.invalidate();
+        // redirect to index
         return "index"; 
     }
 }

@@ -51,13 +51,18 @@ public class DvdFilter implements Filter {
 
         String loginURI = req.getContextPath() + "/index.jsp";
 
-        // System.out.println(req.getParameter("email-id"));
+        System.out.println("My Login URI: " + loginURI);
+       
+        System.out.println("Actual Request URI: " + req.getRequestURI());
+
+        // System.out.println("EmailId: " + req.getParameter("email-id"));
 
         boolean loggedIn = session != null && session.getAttribute("emailId") != null;
         boolean loginRequest = req.getRequestURI().equals(loginURI);
-        boolean authenticateRequest = req.getRequestURI().endsWith("usercontroller") && req.getParameter("email-id") != null;
+        boolean authenticateRequest = req.getRequestURI().endsWith("sign-in-submit") && req.getParameter("email-id") != null;
 
         if (loggedIn || loginRequest || authenticateRequest) {
+            System.out.println("I'm IN");
             // HTTP 1.1
             res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             // HTTP 1.0
@@ -65,6 +70,7 @@ public class DvdFilter implements Filter {
             res.setDateHeader("Expires", 0);
             chain.doFilter(request, response);
         } else {
+            System.out.println("I'm OUT");
             res.sendRedirect(loginURI);
         }
     }   
