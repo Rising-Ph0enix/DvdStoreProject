@@ -52,8 +52,6 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	    session.save(customer);
 
-            // session.save(user);
- 
             tx.commit();
         } catch (HibernateException e) {
             if (null != tx) {
@@ -131,8 +129,6 @@ public class CustomerDAOImpl implements CustomerDAO {
             
             Predicate[] predicates = new Predicate[2];
 
-            // dvdRoot.get("movieName"), dvd.getMovieName()
-
             predicates[0] = builder.equal(purchaseOrderRoot.get("customer"), customerId);
             predicates[1] = builder.equal(purchaseOrderRoot.get("id"), orderId);
             criteria.select(purchaseOrderRoot).where(predicates);
@@ -187,16 +183,10 @@ public class CustomerDAOImpl implements CustomerDAO {
             User user = customer.getUser();
             user.setCustomer(customer);
             
-            // System.out.println(updatedCustomer.getAddress());
-            // Retrieving object which we want to update
-
-            // See if this logic can be implemented in a simpler way
             session.update(customer);
 
             tx.commit();
         } catch (HibernateException e) {
-e.printStackTrace();
-            logger.error("Customer not updated" + ":\t" + e);
             if (null != tx) {
                 tx.rollback();
             }  
@@ -217,7 +207,7 @@ e.printStackTrace();
             Address address = (Address) session.get(Address.class, id);          
             Customer customer = (Customer) session.get(Customer.class, id);
             User user = (User) session.get(User.class, id);
-            // add expired_date column to all tables
+
             // delete address & user before deleting customer - Also have to delete purchaseOrder 
 
             session.delete(customer);

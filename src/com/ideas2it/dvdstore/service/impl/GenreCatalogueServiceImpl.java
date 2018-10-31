@@ -19,7 +19,7 @@ import com.ideas2it.dvdstore.service.impl.GenreCatalogueServiceImpl;
 import com.ideas2it.dvdstore.utils.DateHelper;
 
 /**
- * 
+ * Genre Catalogue is the collection of all the genres and their associated dvds
  *
  * @author Ganesh Venkat S 
  */
@@ -42,8 +42,6 @@ public class GenreCatalogueServiceImpl implements GenreCatalogueService {
     @Override
     public Genre getGenreById(Integer id) throws DvdStoreException {
         GenreCatalogueDAO genreCatalogueDAO = new GenreCatalogueDAOImpl();
-        // Returns an empty list or null -check 
-        // if there is no genre matching id given by user 
         return genreCatalogueDAO.getGenreById(id);
     }
 

@@ -30,6 +30,30 @@ public interface LineItemService {
      */
     LineItem addLineItem(LineItem lineItem) throws DvdStoreException;
 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*
 
     LineItem findLineItemById(Integer id) throws DvdStoreException;
@@ -43,8 +67,6 @@ public interface LineItemService {
     List<LineItem> getLineItems() throws DvdStoreException;
 
     */
-
-}
 
 
 

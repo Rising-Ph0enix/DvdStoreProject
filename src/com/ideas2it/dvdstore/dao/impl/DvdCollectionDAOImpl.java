@@ -149,10 +149,8 @@ public class DvdCollectionDAOImpl implements DvdCollectionDAO {
         try (Session session = factory.getSessionFactory().openSession()) { 
             tx = session.beginTransaction();
             
-            // Retrieving object which we want to update - dvd object is not persistent here I suspect?
-            //session.merge
             dvd = (Dvd) session.get(Dvd.class, id);
-            // Set the updated dvd details to the model field 
+
             dvd.setMovieName(updatedDvd.getMovieName());
             dvd.setReleaseDate(updatedDvd.getReleaseDate());
             dvd.setLanguage(updatedDvd.getLanguage());
@@ -160,6 +158,7 @@ public class DvdCollectionDAOImpl implements DvdCollectionDAO {
             dvd.setQuantity(updatedDvd.getQuantity());
             dvd.setGenres(updatedDvd.getGenres());
             session.update(dvd);
+
             tx.commit();
         } catch (HibernateException e) {
             if (null != tx) {

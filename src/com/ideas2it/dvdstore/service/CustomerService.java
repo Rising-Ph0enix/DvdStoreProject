@@ -61,6 +61,16 @@ public interface CustomerService {
      */
     Customer updateCustomerDetails(Customer customer) throws DvdStoreException;
 
+    /**
+     * Updates the details of the dvd whose id matches id given by user
+     *
+     * @param id
+     *        id of the dvd to modify
+     * @param updatedDvd
+     *        dvd with updated details
+     * @return
+     *        updated customer if the update is performed, null otherwise 
+     */
     Dvd updateDvdDetails(Integer id, Dvd updatedDvd) throws DvdStoreException;
    
     /**
@@ -100,8 +110,15 @@ public interface CustomerService {
      */
     User addUser(User user) throws DvdStoreException;
 
+    /**
+     * Adds the new line item
+     * 
+     * @param lineItem
+     *        new lineItem to be added 
+     * @return 
+     *        new LineItem, if added, null otherwise
+     */
     LineItem addLineItem(LineItem lineItem) throws DvdStoreException;
-
 
     /**
      * Adds the new purchase order

@@ -14,7 +14,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.NamedNativeQuery;
 import javax.persistence.Table;
 
-// Where is this used?
 import org.hibernate.annotations.Proxy;
 import org.hibernate.annotations.SQLDelete; 
 import org.hibernate.annotations.Where; 

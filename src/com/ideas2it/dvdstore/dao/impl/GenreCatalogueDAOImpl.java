@@ -183,8 +183,8 @@ public class GenreCatalogueDAOImpl implements GenreCatalogueDAO {
         List<Genre> genreCatalogue = new ArrayList<Genre>();
         SessionsFactory factory = SessionsFactory.getInstance();
 
-        // This is a static query so, you should be using jpql instead of criteria builder! 
-        // For the others with < 1 parameter, jpql is preferred
+        // This is a static query so, you should be using jpql instead of criteria builder 
+        // For the others with > 1 parameter, jpql is preferred
 
         try (Session session = factory.getSessionFactory().openSession()) {
             tx = session.beginTransaction();

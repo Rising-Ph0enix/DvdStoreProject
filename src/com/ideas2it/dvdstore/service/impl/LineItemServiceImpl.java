@@ -28,8 +28,8 @@ import com.ideas2it.dvdstore.utils.DateHelper;
 import static com.ideas2it.dvdstore.common.Constants.*;
 
 /**
- * Calculates the elapsed time between today's date and the release date 
- * of the dvd
+ * Line Item preserves the price and quantity of dvds at the time of ordering, 
+ *  so as to prevent updation of order details on updation of dvd details 
  *
  * @author Ganesh Venkat S 
  */

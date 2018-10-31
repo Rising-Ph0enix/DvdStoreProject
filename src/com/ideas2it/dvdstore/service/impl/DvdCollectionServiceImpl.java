@@ -21,8 +21,7 @@ import com.ideas2it.dvdstore.utils.DateHelper;
 import static com.ideas2it.dvdstore.common.Constants.*;
 
 /**
- * Calculates the elapsed time between today's date and the release date 
- * of the dvd
+ * DvdCollection contains the entire collection of dvds and their associated genres
  *
  * @author Ganesh Venkat S 
  */

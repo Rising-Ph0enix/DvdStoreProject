@@ -18,8 +18,7 @@ import com.ideas2it.dvdstore.utils.DateHelper;
 import static com.ideas2it.dvdstore.common.Constants.*;
 
 /**
- * Calculates the elapsed time between today's date and the release date 
- * of the dvd
+ * Customer can place many orders and many dvds can be ordered in a single order
  *
  * @author Ganesh Venkat S 
  */

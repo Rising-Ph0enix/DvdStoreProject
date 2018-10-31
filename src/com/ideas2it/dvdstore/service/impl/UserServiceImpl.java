@@ -29,8 +29,7 @@ import com.ideas2it.dvdstore.utils.DateHelper;
 import static com.ideas2it.dvdstore.common.Constants.*;
 
 /**
- * Calculates the elapsed time between today's date and the release date 
- * of the dvd
+ * User is associated with an email, password and role: Customer or Admin 
  *
  * @author Ganesh Venkat S 
  */

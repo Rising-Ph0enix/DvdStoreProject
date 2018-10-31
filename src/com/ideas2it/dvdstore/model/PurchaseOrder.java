@@ -32,9 +32,8 @@ public class PurchaseOrder {
     @Column(name="ordered_date")
     private LocalDate orderedDate;
 
-    // Need to link this order id to the customer ID - one-many from POV of customer
-    // Haven't used nullable = false here bc already def in table
-    // No price field for all the dvds here
+    // Haven't used nullable = false here because already defined in table
+    // Include total price of all dvds
 
     @ManyToOne
     @JoinColumn(name = "customer_id")

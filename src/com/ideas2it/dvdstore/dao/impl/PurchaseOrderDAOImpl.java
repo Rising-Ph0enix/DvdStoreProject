@@ -33,13 +33,7 @@ public class PurchaseOrderDAOImpl implements PurchaseOrderDAO {
 
     @Override
     public PurchaseOrder addPurchaseOrder(PurchaseOrder purchaseOrder) throws DvdStoreException {
-        
-        /*
-        User user = new User("tommy", "ymmot", "tommy@gmail.com");
-        Group group = new Group("Coders");
-        PurchaseOrder purchaseOrder = new PurchaseOrder("5", "24/06/1995");
-        Dvd dvd = new Dvd("3", "Test", );
-        */
+
 
         Transaction tx = null;
         SessionsFactory factory = SessionsFactory.getInstance();

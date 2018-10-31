@@ -15,6 +15,15 @@ import java.util.Scanner;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;  
+import org.springframework.ui.ModelMap; 
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;  
+import org.springframework.web.bind.annotation.RequestMapping;  
+import org.springframework.web.bind.annotation.RequestMethod;  
+import org.springframework.web.servlet.ModelAndView;  
+
 import com.ideas2it.dvdstore.exception.DvdStoreException;
 import com.ideas2it.dvdstore.logger.DvdStoreLogger;
 import com.ideas2it.dvdstore.model.Address;
@@ -33,15 +42,6 @@ import com.ideas2it.dvdstore.service.impl.DvdCollectionServiceImpl;
 import com.ideas2it.dvdstore.service.impl.GenreCatalogueServiceImpl;
 import com.ideas2it.dvdstore.service.impl.PurchaseOrderServiceImpl;
 import com.ideas2it.dvdstore.utils.InputValidator;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;  
-import org.springframework.ui.ModelMap; 
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;  
-import org.springframework.web.bind.annotation.RequestMapping;  
-import org.springframework.web.bind.annotation.RequestMethod;  
-import org.springframework.web.servlet.ModelAndView;  
 
 import static com.ideas2it.dvdstore.common.Constants.*; 
 
@@ -67,8 +67,6 @@ public class CustomerController {
 
             customer = customerService.addCustomer(customer); 
 
-            // Note in the customer dao - it adds a Plain customer - with user & address - but No purchase orders
-
             // out.println(CUSTOMER_ADDED + customer.getName());
         } catch (DvdStoreException e) {
             logger.error(CUSTOMER_NOT_ADDED + e);
@@ -88,7 +86,6 @@ public class CustomerController {
             CustomerService customerService = 
                 new CustomerServiceImpl();
 
-            // id = Integer.parseInt(request.getParameter("customer-id"));
             HttpSession session = request.getSession();
             customerId = (Integer) session.getAttribute("customerId");
             customer = customerService.getCustomerById(customerId);
@@ -187,7 +184,7 @@ public class CustomerController {
             // set the customer associated with purchaseOrder
             HttpSession session = request.getSession();
             customerId = (Integer) session.getAttribute("customerId");
-            //System.out.println(customerId);
+
             customer = customerService.getCustomerById(customerId);
             purchaseOrder.setCustomer(customer);
 
@@ -211,7 +208,7 @@ public class CustomerController {
                 if(orderedDvdQuantityString != null && !orderedDvdQuantityString.isEmpty()) {
                     orderedDvdQuantity = Integer.parseInt(orderedDvdQuantityString);
                 }
-                // redundant check?
+                // redundant check
                 if(orderedDvdQuantity != null) { 
                     orderedDvdQuantities.add(orderedDvdQuantity);
                 }
@@ -243,7 +240,6 @@ public class CustomerController {
     public ModelAndView displayCustomerOrders(HttpServletRequest request) {   
         Integer customerId = null;       
         Customer customer = new Customer();
-        // PurchaseOrder purchaseOrder = new PurchaseOrder();
         List<PurchaseOrder> purchaseOrders = new ArrayList<PurchaseOrder>();
         ModelAndView modelAndView = new ModelAndView();
 
@@ -288,6 +284,60 @@ public class CustomerController {
     }  
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

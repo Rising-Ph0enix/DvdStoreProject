@@ -30,6 +30,16 @@ public interface UserService {
      */
     User addUser(User user) throws DvdStoreException;
 
+    /**
+     * Authenticates the user
+     * 
+     * @param emailId
+     *        emailId of the user
+     * @param password
+     *        password of the user 
+     * @return 
+     *        new User, if added, null otherwise
+     */
     User authenticateUser(String emailId, String password) throws DvdStoreException;
 
     /**

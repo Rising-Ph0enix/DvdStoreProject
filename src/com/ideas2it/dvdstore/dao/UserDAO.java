@@ -26,6 +26,16 @@ public interface UserDAO {
      */
     User addUser(User user) throws DvdStoreException;
 
+    /**
+     * Authenticates the user 
+     * 
+     * @param emailId
+     *        emailId of user
+     * @param password
+     *        password of user  
+     * @return 
+     *        new user, if added, null otherwise
+     */
     User authenticateUser(String emailId, String password) throws DvdStoreException;
 
 }

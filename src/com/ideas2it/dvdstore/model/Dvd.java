@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -55,7 +56,7 @@ public class Dvd {
     @Column(name="quantity")
     private Integer quantity;
 
-    // Is this needed for a uni-directional relationship
+    // Not needed for a uni-directional relationship
     @OneToMany(mappedBy = "dvd")
     private List<LineItem> lineItems = new ArrayList<LineItem>();
 

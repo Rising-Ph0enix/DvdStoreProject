@@ -73,7 +73,6 @@ public class UserController {
                     // Use the email as a session attribute to set instead of customerId after you set custId to null for admin
                     // customerId = customerService.getCustomerIdByUserEmailId(emailId);
                     session.setAttribute("emailId", emailId);
-                    // dispatchRequest("admin-menu.jsp", request, response); 
                     // return "forward:admin-menu"; 
                     return "admin-menu";
                 }
@@ -81,8 +80,8 @@ public class UserController {
                     // Customer menu
                     HttpSession session = request.getSession();
                     customerId = userService.getCustomerIdByUserEmailId(emailId);
+                    session.setAttribute("emailId", emailId);
                     session.setAttribute("customerId", customerId);
-                    // dispatchRequest("customer-menu.jsp", request, response);
                     // return "forward:customer-menu"; 
                     return "customer-menu"; 
                 }
@@ -94,7 +93,6 @@ public class UserController {
             // out.println(CUSTOMER_NOT_SEARCHED + id);            
         }        
    
-        // model.addAttribute("customer", new Customer());   
         return "dvd-added";  
     }
 
@@ -105,9 +103,37 @@ public class UserController {
         HttpSession session = request.getSession(false);
         session.invalidate();
         // redirect to index
-        return "index"; 
+        return "redirect:../index"; 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* 

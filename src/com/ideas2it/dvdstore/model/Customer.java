@@ -3,6 +3,7 @@ package com.ideas2it.dvdstore.model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,13 +14,13 @@ import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import com.ideas2it.dvdstore.model.Address;
 import com.ideas2it.dvdstore.model.LineItem;
 import com.ideas2it.dvdstore.model.PurchaseOrder;
 import com.ideas2it.dvdstore.model.User;
-
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 
 import static com.ideas2it.dvdstore.common.Constants.*;
 
